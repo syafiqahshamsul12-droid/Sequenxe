@@ -1,0 +1,411 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-light: var(--primary-light);
+  --color-bg-custom: var(--bg-custom);
+  --color-card-custom: var(--card-custom);
+  --color-border-custom: var(--border-custom);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-success: #2E7D32;
+  --color-warning: #C28A00;
+  --color-error: #B3261E;
+
+  --font-sans: "Poppins", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: "Poppins", "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --radius-custom: 16px;
+}
+
+:root {
+  --primary: #7A2436;
+  --primary-hover: #8B2E42;
+  --primary-light: #B15066;
+  --bg-custom: #F8F7F5;
+  --card-custom: #FFFFFF;
+  --border-custom: #E9E5E2;
+  --text-primary: #1F1F1F;
+  --text-secondary: #6B7280;
+  color-scheme: light;
+}
+
+.dark {
+  --primary: #FE2E4B;
+  --primary-hover: #FE2E3B;
+  --primary-light: #FB7180;
+  --bg-custom: #0F0E0E;
+  --card-custom: #161316;
+  --border-custom: rgba(255, 255, 255, 0.08);
+  --text-primary: #FFFFFF;
+  --text-secondary: #A1A1AA;
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--color-bg-custom);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   Dark Mode Global Overrides & Readability Enhancements
+   ========================================================================== */
+
+/* 1. Card & Layout Backgrounds */
+.dark body {
+  background-color: var(--color-bg-custom) !important;
+  color: var(--color-text-primary) !important;
+}
+
+.dark .bg-white,
+.dark .bg-slate-50,
+.dark .bg-gray-50,
+.dark .bg-stone-50,
+.dark .bg-zinc-50,
+.dark .bg-neutral-50 {
+  background-color: var(--color-card-custom) !important;
+}
+
+.dark header.bg-white\/95 {
+  background-color: rgba(22, 19, 22, 0.95) !important;
+}
+
+.dark .bg-bg-custom {
+  background-color: var(--color-bg-custom) !important;
+}
+
+.dark .bg-bg-custom\/30,
+.dark .bg-bg-custom\/50,
+.dark .bg-bg-custom\/60 {
+  background-color: rgba(255, 255, 255, 0.03) !important;
+}
+
+.dark .bg-white\/80,
+.dark .bg-white\/90 {
+  background-color: rgba(22, 19, 22, 0.85) !important;
+}
+
+/* 2. Borders & Dividers - Subtle Transparent Borders (rgba(255,255,255,0.08)) */
+.dark .border,
+.dark .border-border-custom,
+.dark .border-gray-100,
+.dark .border-gray-200,
+.dark .border-gray-300,
+.dark .border-gray-400,
+.dark .border-slate-100,
+.dark .border-slate-200,
+.dark .border-slate-300,
+.dark .border-slate-400,
+.dark .border-stone-100,
+.dark .border-stone-200,
+.dark .border-stone-300,
+.dark .border-zinc-100,
+.dark .border-zinc-200,
+.dark .border-zinc-300,
+.dark .border-neutral-100,
+.dark .border-neutral-200,
+.dark .border-neutral-300,
+.dark .border-white {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.dark [class*="border-gray-"],
+.dark [class*="border-slate-"],
+.dark [class*="border-stone-"],
+.dark [class*="border-zinc-"],
+.dark [class*="border-neutral-"] {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.dark [class*="divide-"] > * {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* 3. Typography & Contrast in Dark Mode */
+.dark .text-text-primary,
+.dark .text-slate-900,
+.dark .text-slate-800,
+.dark .text-slate-700,
+.dark .text-gray-900,
+.dark .text-gray-800,
+.dark .text-gray-700,
+.dark .text-stone-900,
+.dark .text-stone-800,
+.dark .text-stone-700,
+.dark .text-zinc-900,
+.dark .text-zinc-800,
+.dark .text-zinc-700,
+.dark .text-neutral-900,
+.dark .text-neutral-800,
+.dark .text-neutral-700,
+.dark .text-black {
+  color: #FFFFFF !important;
+}
+
+.dark .text-text-secondary,
+.dark .text-slate-600,
+.dark .text-slate-500,
+.dark .text-slate-400,
+.dark .text-gray-600,
+.dark .text-gray-500,
+.dark .text-gray-400,
+.dark .text-stone-600,
+.dark .text-stone-500,
+.dark .text-stone-400,
+.dark .text-zinc-600,
+.dark .text-zinc-500,
+.dark .text-zinc-400,
+.dark .text-neutral-600,
+.dark .text-neutral-500,
+.dark .text-neutral-400 {
+  color: #A1A1AA !important;
+}
+
+/* Unreadable dark red / wine text replacement */
+.dark .text-primary-dark,
+.dark .text-red-900,
+.dark .text-red-800,
+.dark .text-red-700,
+.dark .text-rose-900,
+.dark .text-rose-800,
+.dark .text-rose-700,
+.dark .text-amber-900,
+.dark .text-emerald-900 {
+  color: #FE2E4B !important;
+}
+
+/* 4. Form Controls & Inputs */
+.dark input, 
+.dark select, 
+.dark textarea {
+  background-color: var(--color-bg-custom) !important;
+  color: #FFFFFF !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #A1A1AA !important;
+}
+
+/* 5. Highlight & Status Boxes */
+.dark .bg-emerald-50, 
+.dark .bg-emerald-50\/20,
+.dark .bg-emerald-500\/10 {
+  background-color: rgba(16, 185, 129, 0.1) !important;
+}
+
+.dark .bg-emerald-100 {
+  background-color: rgba(16, 185, 129, 0.18) !important;
+}
+
+.dark .border-emerald-200, 
+.dark .border-emerald-300,
+.dark .border-emerald-300\/60,
+.dark .border-emerald-500\/40 {
+  border-color: rgba(16, 185, 129, 0.2) !important;
+}
+
+.dark .text-emerald-700, 
+.dark .text-emerald-800,
+.dark .text-emerald-600 {
+  color: #34D399 !important;
+}
+
+.dark .bg-amber-50, 
+.dark .bg-amber-50\/20,
+.dark .bg-amber-500\/10 {
+  background-color: rgba(245, 158, 11, 0.1) !important;
+}
+
+.dark .bg-amber-100 {
+  background-color: rgba(245, 158, 11, 0.18) !important;
+}
+
+.dark .border-amber-200,
+.dark .border-amber-300 {
+  border-color: rgba(245, 158, 11, 0.2) !important;
+}
+
+.dark .text-amber-700, 
+.dark .text-amber-800,
+.dark .text-amber-600 {
+  color: #FBBF24 !important;
+}
+
+.dark .bg-blue-50, 
+.dark .bg-blue-100,
+.dark .bg-blue-500\/10 {
+  background-color: rgba(59, 130, 246, 0.12) !important;
+}
+
+.dark .text-blue-700, 
+.dark .text-blue-800,
+.dark .text-blue-600 {
+  color: #60A5FA !important;
+}
+
+.dark .bg-primary\/5,
+.dark .bg-primary\/10 {
+  background-color: rgba(254, 46, 75, 0.12) !important;
+}
+
+.dark .bg-slate-100,
+.dark .bg-slate-200,
+.dark .bg-slate-300 {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Table Row Overrides */
+.dark thead tr,
+.dark table tr.bg-bg-custom,
+.dark table tr.bg-slate-50 {
+  background-color: rgba(255, 255, 255, 0.03) !important;
+}
+
+.dark tr.bg-primary\/5 {
+  background-color: rgba(254, 46, 75, 0.1) !important;
+}
+
+/* Shadows in Dark Mode */
+.dark .shadow,
+.dark .shadow-xs,
+.dark .shadow-sm,
+.dark .shadow-md,
+.dark .shadow-lg,
+.dark .shadow-xl {
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E9E5E2;
+  border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #2A262C;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D8D2CE;
+}
+
+/* Print layouts for reports formatted for A4 */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm 15mm 12mm 15mm;
+  }
+  
+  html, body {
+    background: #FFFFFF !important;
+    color: #0F172A !important;
+    font-size: 10pt;
+    line-height: 1.4;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide all interactive / web-only UI elements & chrome */
+  #app-header,
+  #app-footer,
+  aside,
+  header, 
+  footer, 
+  nav, 
+  button, 
+  input,
+  select,
+  textarea,
+  input[type="range"],
+  .no-print,
+  .no-print-area,
+  .calculator-hero,
+  .faq-section,
+  .ai-advisor,
+  .adsbygoogle {
+    display: none !important;
+  }
+
+  /* Force display of the PrintReportHeader */
+  .print-report-header {
+    display: block !important;
+  }
+
+  /* Expand main content container for full page width */
+  main, div#root, div.container, div.max-w-7xl {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Force grid containers to unstack and fill 100% width */
+  .grid {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .lg\:col-span-7,
+  .lg\:col-span-5,
+  .print-results-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 0 1rem 0 !important;
+    padding: 0 !important;
+  }
+
+  .print-card, 
+  .border, 
+  .rounded-2xl, 
+  .rounded-xl {
+    border: 1px solid #CBD5E1 !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    background: #FFFFFF !important;
+  }
+
+  /* Ensure text remains dark and readable */
+  h1, h2, h3, h4, h5, h6, p, span, td, th {
+    color: #0F172A !important;
+  }
+
+  /* Format tables cleanly for print */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+  }
+
+  th, td {
+    border: 1px solid #E2E8F0 !important;
+    padding: 6px 8px !important;
+  }
+
+  /* Chart & graphic printing optimization */
+  .recharts-responsive-container,
+  .recharts-wrapper,
+  svg {
+    max-height: 280px !important;
+    width: 100% !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    overflow: visible !important;
+  }
+}

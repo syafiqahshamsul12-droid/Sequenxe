@@ -1,0 +1,8 @@
+{
+  "name": "Sequenxe - Malaysian Financial Calculator Platform",
+  "description": "Sequenxe: Premium Malaysian financial calculators for PCB income tax, home loans, EPF retirement, and personal loans, powered by AI financial analysis.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
