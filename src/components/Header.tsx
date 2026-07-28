@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import React, { useState, useRef } from 'react';
 import { Search, Globe, Sun, Moon, Calculator, ChevronDown, Menu, X, ArrowRight, BookOpen } from 'lucide-react';
 import { CALCULATORS, CATEGORIES } from '../data/calculators';
@@ -12,6 +13,7 @@ interface HeaderProps {
 }
 
 export default function Header({ onSearchFocus, activeView, setActiveView, searchQuery, setSearchQuery }: HeaderProps) {
+  const navigate = useNavigate();
   const [country, setCountry] = useState('MY');
   const [isDark, setIsDark] = useState(false);
   const [isSearchFocused, setIsSearchFocused] = useState(false);
@@ -70,6 +72,31 @@ export default function Header({ onSearchFocus, activeView, setActiveView, searc
   );
 
   const handleSelectView = (viewId: string) => {
+    const routes: Record<string, string> = {
+      home: '/',
+      blog: '/blog',
+      about: '/about',
+      contact: '/contact',
+      'salary-calculator': '/salary-calculator',
+      'pcb-calculator': '/pcb-calculator',
+      'income-tax-calculator': '/income-tax-calculator',
+      'epf-calculator': '/epf-calculator',
+      'epf-contribution-calculator': '/epf-calculator',
+      'socso-calculator': '/socso-calculator',
+      'eis-calculator': '/eis-calculator',
+      'home-loan-calculator': '/home-loan-calculator',
+      'stamp-duty-calculator': '/stamp-duty-calculator',
+      'loan-eligibility-calculator': '/loan-eligibility-calculator',
+      'personal-loan-calculator': '/personal-loan-calculator',
+      'epf-retirement-calculator': '/epf-retirement-calculator',
+      'privacy-policy': '/privacy-policy',
+      'cookie-policy': '/cookie-policy',
+      'terms': '/terms',
+      'disclaimer': '/disclaimer',
+    };
+  
+    navigate(routes[viewId] || '/');
+  
     setActiveView(viewId);
     setSearchQuery('');
     setIsDropdownOpen(false);
@@ -229,7 +256,7 @@ export default function Header({ onSearchFocus, activeView, setActiveView, searc
 
             {/* 3. Blog */}
             <button 
-              onClick={() => handleSelectView('blog')}
+              onClick={() => navigate('/blog')}
               className={`text-sm font-semibold px-3 py-2 rounded-lg transition-colors cursor-pointer ${
                 isBlogActive ? 'text-primary bg-primary/5 font-bold' : 'text-text-secondary hover:text-text-primary hover:bg-bg-custom'
               }`}

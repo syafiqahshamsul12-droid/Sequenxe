@@ -1,3 +1,5 @@
+import { Routes, Route } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -25,6 +27,7 @@ import TermsPage from './components/TermsPage';
 
 export default function App() {
   const [activeView, setActiveView] = useState<string>('home');
+  const location = useLocation();
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   // Auto-scroll to top and listen for view changes
@@ -44,91 +47,108 @@ export default function App() {
     return () => window.removeEventListener('change-view', handleViewChange);
   }, []);
 
-  const renderActiveView = () => {
-    if (activeView.startsWith('blog-')) {
-      const slug = activeView.replace('blog-', '');
-      return (
-        <BlogPostPage 
-          slug={slug} 
-          onBackToBlog={() => setActiveView('blog')} 
-          onSelectCalculator={(id) => setActiveView(id)} 
+  const AppRoutes = () => {
+    return (
+      <Routes>
+  
+        <Route 
+          path="/" 
+          element={
+            <Homepage 
+              setActiveView={setActiveView}
+              searchQuery={searchQuery}
+              setSearchQuery={setSearchQuery}
+            />
+          } 
         />
-      );
-    }
-
-    switch (activeView) {
-      case 'home':
-        return (
-          <Homepage 
-            setActiveView={setActiveView} 
-            searchQuery={searchQuery}
-            setSearchQuery={setSearchQuery}
-          />
-        );
-      case 'salary-tax':
-      case 'salary-calculator':
-      case 'salary-calculator-malaysia':
-        return <SalaryCalculator />;
-      case 'pcb-calculator':
-        return <PcbCalculator />;
-      case 'income-tax-calculator':
-        return <IncomeTaxCalculator />;
-      case 'epf-calculator':
-      case 'epf-contribution-calculator':
-        return <EpfContributionCalculator />;
-      case 'socso-calculator':
-        return <SocsoCalculator />;
-      case 'eis-calculator':
-        return <EisCalculator />;
-      case 'home-loan':
-      case 'home-loan-calculator':
-        return <HomeLoanCalculator />;
-      case 'stamp-duty-calculator':
-        return <StampDutyCalculator />;
-      case 'loan-eligibility-calculator':
-        return <LoanEligibilityCalculator />;
-      case 'personal-loan-calculator':
-      case 'personal-loan':
-        return <PersonalLoanCalculator />;
-      case 'epf-retirement':
-      case 'epf-retirement-calculator':
-        return <EpfCalculator />;
-      case 'blog':
-        return (
-          <BlogPage 
-            onSelectArticle={(slug) => setActiveView(`blog-${slug}`)} 
-            onSelectCalculator={(id) => setActiveView(id)} 
-          />
-        );
-      case 'about':
-        return <AboutPage />;
-      case 'contact':
-        return <ContactPage />;
-      case 'privacy-policy':
-        return <PrivacyPolicyPage />;
-      case 'cookie-policy':
-        return <CookiePolicyPage />;
-      case 'disclaimer':
-        return <DisclaimerPage />;
-      case 'terms-and-conditions':
-      case 'terms':
-        return <TermsPage />;
-      case 'admin':
-      case 'cms-admin':
-        return (
-          <CmsAdminPage 
-            onNavigateBlog={(slug) => setActiveView(slug ? `blog-${slug}` : 'blog')} 
-          />
-        );
-      default:
-        return (
-          <Homepage 
-            setActiveView={setActiveView} 
-            searchQuery={searchQuery}
-            setSearchQuery={setSearchQuery}
-          />
-        );
-    }
+  
+        <Route 
+          path="/salary-calculator" 
+          element={<SalaryCalculator />} 
+        />
+  
+        <Route 
+          path="/pcb-calculator" 
+          element={<PcbCalculator />} 
+        />
+  
+        <Route 
+          path="/income-tax-calculator" 
+          element={<IncomeTaxCalculator />} 
+        />
+  
+        <Route 
+          path="/epf-calculator" 
+          element={<EpfContributionCalculator />} 
+        />
+  
+        <Route 
+          path="/socso-calculator" 
+          element={<SocsoCalculator />} 
+        />
+  
+        <Route 
+          path="/eis-calculator" 
+          element={<EisCalculator />} 
+        />
+  
+        <Route 
+          path="/home-loan-calculator" 
+          element={<HomeLoanCalculator />} 
+        />
+  
+        <Route 
+          path="/blog" 
+          element={
+            <BlogPage 
+              onSelectArticle={(slug) => window.location.href = `/blog/${slug}`}
+              onSelectCalculator={(id) => window.location.href = `/${id}`}
+            />
+          } 
+        />
+        <Route
+          path="/blog/:slug"
+          element={
+            <BlogPostPage
+              slug={window.location.pathname.split('/')[2]}
+              onBackToBlog={() => window.location.href = '/blog'}
+              onSelectCalculator={(id) => window.location.href = `/${id}`}
+            />
+          }
+        />
+  
+        <Route 
+          path="/about" 
+          element={<AboutPage />} 
+        />
+  
+        <Route 
+          path="/contact" 
+          element={<ContactPage />} 
+        />
+  
+        <Route 
+          path="/privacy-policy" 
+          element={<PrivacyPolicyPage />} 
+        />
+  
+        <Route 
+          path="/terms" 
+          element={<TermsPage />} 
+        />
+  
+        <Route 
+          path="/disclaimer" 
+          element={<DisclaimerPage />} 
+        />
+        
+        <Route
+          path="/cookie-policy"
+          element={<CookiePolicyPage />}
+        />
+  
+      </Routes>
+    );
   };
 
   const handleSearchFocus = () => {
@@ -152,7 +172,7 @@ export default function App() {
         
         {/* Dynamic View Injection */}
         <div className="w-full">
-          {renderActiveView()}
+          <AppRoutes />
         </div>
 
       </main>

@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 import { Search, Sparkles, ArrowRight, Home, Percent, CreditCard, TrendingUp, ChevronRight, BookOpen, Clock, Heart, HelpCircle, Check } from 'lucide-react';
 import { CALCULATORS, CATEGORIES, FEATURED_GUIDES } from '../data/calculators';
@@ -10,6 +11,7 @@ interface HomepageProps {
 }
 
 export default function Homepage({ setActiveView, searchQuery, setSearchQuery }: HomepageProps) {
+  const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState<CategoryId | null>(null);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
@@ -85,7 +87,10 @@ export default function Homepage({ setActiveView, searchQuery, setSearchQuery }:
           ].map((tag) => (
             <button
               key={tag.id}
-              onClick={() => { setActiveView(tag.id); setSearchQuery(''); }}
+              onClick={() => {
+                navigate(`/${tag.id}`);
+                setSearchQuery('');
+              }}
               className="text-xs font-medium bg-white hover:bg-primary/5 hover:text-primary hover:border-primary/20 border border-border-custom px-3 py-1.5 rounded-lg transition-colors cursor-pointer"
             >
               {tag.label}
@@ -130,7 +135,7 @@ export default function Homepage({ setActiveView, searchQuery, setSearchQuery }:
                     <p className="text-xs text-text-secondary leading-relaxed">{calc.shortDescription}</p>
                   </div>
                   <button
-                    onClick={() => setActiveView(calc.id)}
+                    onClick={() => navigate(`/${calc.id}`)}
                     className="mt-5 w-full flex items-center justify-center gap-1.5 bg-primary hover:bg-primary-hover text-white text-xs font-bold py-2.5 px-4 rounded-xl transition-colors cursor-pointer"
                   >
                     <span>Open Calculator</span>
@@ -181,7 +186,7 @@ export default function Homepage({ setActiveView, searchQuery, setSearchQuery }:
                 </div>
 
                 <button
-                  onClick={() => setActiveView(calc.id)}
+                  onClick={() => navigate(`/${calc.id}`)}
                   className="mt-5 flex items-center justify-center gap-1 bg-primary hover:bg-primary-hover text-white text-xs font-bold py-2.5 px-4 rounded-xl transition-all cursor-pointer shadow-sm"
                 >
                   <span>Open Tool</span>
@@ -251,7 +256,7 @@ export default function Homepage({ setActiveView, searchQuery, setSearchQuery }:
                 {filteredCalculators.map(calc => (
                   <button
                     key={calc.id}
-                    onClick={() => setActiveView(calc.id)}
+                    onClick={() => navigate(`/${calc.id}`)}
                     className="bg-white border border-border-custom rounded-xl p-4 text-left transition-all hover:border-primary/30 flex justify-between items-center cursor-pointer group"
                   >
                     <div className="flex items-center gap-3">
@@ -306,12 +311,10 @@ export default function Homepage({ setActiveView, searchQuery, setSearchQuery }:
                 </div>
 
                 <div className="mt-5 pt-4 border-t border-bg-custom">
-                  <button 
-                    onClick={() => {
-                      window.dispatchEvent(new CustomEvent('change-view', { detail: `blog-${guide.slug}` }));
-                    }}
+                  <button
+                    onClick={() => navigate(`/blog/${post.slug}`)}
                     className="text-xs font-semibold text-primary hover:text-primary-hover flex items-center gap-1 cursor-pointer"
-                  >
+                    >
                     <span>Read complete guide</span>
                     <ArrowRight className="h-3 w-3" />
                   </button>

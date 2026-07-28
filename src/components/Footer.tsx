@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import React from 'react';
 import { Shield } from 'lucide-react';
 import Logo from './Logo';
@@ -7,6 +8,7 @@ interface FooterProps {
 }
 
 export default function Footer({ setActiveView }: FooterProps) {
+  const navigate = useNavigate();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -17,7 +19,7 @@ export default function Footer({ setActiveView }: FooterProps) {
           {/* Brand block (col-span-12 md:col-span-4) */}
           <div className="md:col-span-4 space-y-4">
             <button 
-              onClick={() => setActiveView('home')}
+              onClick={() => navigate('/')}
               className="text-left cursor-pointer transition-transform hover:scale-102 inline-block"
             >
               <Logo size="md" />
@@ -42,7 +44,7 @@ export default function Footer({ setActiveView }: FooterProps) {
               <ul className="space-y-2.5 text-xs sm:text-sm font-medium">
                 <li>
                   <button 
-                    onClick={() => setActiveView('home')} 
+                    onClick={() => navigate('/')} 
                     className="text-text-secondary hover:text-primary transition-colors cursor-pointer text-left"
                   >
                     Calculators
@@ -50,7 +52,7 @@ export default function Footer({ setActiveView }: FooterProps) {
                 </li>
                 <li>
                   <button 
-                    onClick={() => setActiveView('blog')} 
+                    onClick={() => navigate('/blog')} 
                     className="text-text-secondary hover:text-primary transition-colors cursor-pointer text-left"
                   >
                     Articles
@@ -67,7 +69,7 @@ export default function Footer({ setActiveView }: FooterProps) {
               <ul className="space-y-2.5 text-xs sm:text-sm font-medium">
                 <li>
                   <button 
-                    onClick={() => setActiveView('about')} 
+                    onClick={() => navigate('/about')} 
                     className="text-text-secondary hover:text-primary transition-colors cursor-pointer text-left"
                   >
                     About
@@ -75,7 +77,7 @@ export default function Footer({ setActiveView }: FooterProps) {
                 </li>
                 <li>
                   <button 
-                    onClick={() => setActiveView('contact')} 
+                    onClick={() => navigate('/contact')} 
                     className="text-text-secondary hover:text-primary transition-colors cursor-pointer text-left"
                   >
                     Contact
@@ -92,7 +94,7 @@ export default function Footer({ setActiveView }: FooterProps) {
               <ul className="space-y-2.5 text-xs sm:text-sm font-medium">
                 <li>
                   <button 
-                    onClick={() => setActiveView('privacy-policy')} 
+                    onClick={() => navigate('/privacy-policy')} 
                     className="text-text-secondary hover:text-primary transition-colors cursor-pointer text-left"
                   >
                     Privacy Policy
@@ -100,7 +102,7 @@ export default function Footer({ setActiveView }: FooterProps) {
                 </li>
                 <li>
                   <button 
-                    onClick={() => setActiveView('cookie-policy')} 
+                    onClick={() => navigate('/cookie-policy')} 
                     className="text-text-secondary hover:text-primary transition-colors cursor-pointer text-left"
                   >
                     Cookie Policy
@@ -108,7 +110,7 @@ export default function Footer({ setActiveView }: FooterProps) {
                 </li>
                 <li>
                   <button 
-                    onClick={() => setActiveView('disclaimer')} 
+                    onClick={() => navigate('/disclaimer')} 
                     className="text-text-secondary hover:text-primary transition-colors cursor-pointer text-left"
                   >
                     Disclaimer
@@ -116,7 +118,7 @@ export default function Footer({ setActiveView }: FooterProps) {
                 </li>
                 <li>
                   <button 
-                    onClick={() => setActiveView('terms-and-conditions')} 
+                    onClick={() => navigate('/terms')} 
                     className="text-text-secondary hover:text-primary transition-colors cursor-pointer text-left"
                   >
                     Terms & Conditions
@@ -124,12 +126,7 @@ export default function Footer({ setActiveView }: FooterProps) {
                 </li>
                 <li>
                   <button 
-                    onClick={() => {
-                      if (window.location.pathname !== '/admin') {
-                        window.history.pushState({}, '', '/admin');
-                      }
-                      setActiveView('admin');
-                    }} 
+                    onClick={() => navigate('/admin')} 
                     className="text-text-secondary/60 hover:text-primary transition-colors cursor-pointer text-left text-xs opacity-75 hover:opacity-100"
                     title="Admin Portal"
                   >

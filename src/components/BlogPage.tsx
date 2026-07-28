@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { BookOpen, Search, ArrowRight, Clock, Calendar, User, Tag, ChevronRight, Settings } from 'lucide-react';
 import { BlogPost } from '../data/blogPosts';
@@ -11,6 +12,7 @@ interface BlogPageProps {
 }
 
 export default function BlogPage({ onSelectArticle, onSelectCalculator }: BlogPageProps) {
+  const navigate = useNavigate();
   const blogPosts = useCmsBlogPosts(false); // published posts only
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -94,7 +96,7 @@ export default function BlogPage({ onSelectArticle, onSelectCalculator }: BlogPa
         {filteredPosts.map((post) => (
           <article
             key={post.id}
-            onClick={() => onSelectArticle(post.slug)}
+            onClick={() => navigate(`/blog/${post.slug}`)}
             className="group flex flex-col justify-between rounded-2xl border border-border-custom bg-white p-6 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 cursor-pointer"
           >
             <div className="space-y-4">

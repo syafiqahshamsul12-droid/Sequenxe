@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 import { 
   ArrowLeft, Clock, Calendar, User, Tag, Calculator, 
@@ -17,6 +18,7 @@ interface BlogPostPageProps {
 }
 
 export default function BlogPostPage({ slug, onBackToBlog, onSelectCalculator }: BlogPostPageProps) {
+  const navigate = useNavigate();
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
   const [copiedLink, setCopiedLink] = useState(false);
   const allPosts = useCmsBlogPosts(true); // include published & preview drafts
@@ -195,7 +197,7 @@ export default function BlogPostPage({ slug, onBackToBlog, onSelectCalculator }:
                   </div>
                 </div>
                 <button
-                  onClick={() => onSelectCalculator(calc.id)}
+                  onClick={() => navigate(`/${calc.id}`)}
                   className="shrink-0 rounded-lg bg-primary px-3 py-1.5 text-xs font-bold text-white shadow-xs hover:bg-primary-dark transition-all cursor-pointer whitespace-nowrap"
                 >
                   Calculate →
