@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Homepage from './components/Homepage';
+import ScrollToTop from "./components/ScrollToTop";
 import SalaryCalculator from './components/calculators/SalaryCalculator';
 import PcbCalculator from './components/calculators/PcbCalculator';
 import IncomeTaxCalculator from './components/calculators/IncomeTaxCalculator';
@@ -29,11 +30,6 @@ export default function App() {
   const [activeView, setActiveView] = useState<string>('home');
   const location = useLocation();
   const [searchQuery, setSearchQuery] = useState<string>('');
-
-  // Auto-scroll to top and listen for view changes
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [activeView]);
 
   useEffect(() => {
     const handleViewChange = (e: Event) => {
@@ -81,6 +77,11 @@ export default function App() {
           path="/epf-calculator" 
           element={<EpfContributionCalculator />} 
         />
+
+        <Route
+          path="/epf-retirement-calculator"
+          element={<EpfCalculator />}
+        />
   
         <Route 
           path="/socso-calculator" 
@@ -95,6 +96,21 @@ export default function App() {
         <Route 
           path="/home-loan-calculator" 
           element={<HomeLoanCalculator />} 
+        />
+
+        <Route
+          path="/loan-eligibility-calculator"
+          element={<LoanEligibilityCalculator />}
+        />
+
+        <Route
+          path="/personal-loan-calculator"
+          element={<PersonalLoanCalculator />}
+        />
+
+        <Route
+          path="/stamp-duty-calculator"
+          element={<StampDutyCalculator />}
         />
   
         <Route 
@@ -146,6 +162,11 @@ export default function App() {
           path="/cookie-policy"
           element={<CookiePolicyPage />}
         />
+
+        <Route
+          path="/admin"
+          element={<CmsAdminPage />}
+        />
   
       </Routes>
     );
@@ -156,10 +177,12 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-bg-custom antialiased font-sans">
-      
-      {/* 1. Header Navigation */}
-      <Header 
+      <div className="min-h-screen flex flex-col bg-bg-custom antialiased font-sans">
+    
+          <ScrollToTop />
+          
+          {/* 1. Header Navigation */}
+          <Header  
         onSearchFocus={handleSearchFocus}
         activeView={activeView}
         setActiveView={setActiveView}

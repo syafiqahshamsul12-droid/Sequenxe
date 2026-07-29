@@ -76,8 +76,8 @@ export default function Footer({ setActiveView }: FooterProps) {
                   </button>
                 </li>
                 <li>
-                  <button 
-                    onClick={() => navigate('/contact')} 
+                  <button
+                    onClick={() => navigate('/contact')}
                     className="text-text-secondary hover:text-primary transition-colors cursor-pointer text-left"
                   >
                     Contact
