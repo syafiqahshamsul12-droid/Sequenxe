@@ -76,7 +76,6 @@ export default function Header({ onSearchFocus, activeView, setActiveView, searc
       home: '/',
       blog: '/blog',
       about: '/about',
-      contact: '/contact',
       'salary-calculator': '/salary-calculator',
       'pcb-calculator': '/pcb-calculator',
       'income-tax-calculator': '/income-tax-calculator',
@@ -274,15 +273,6 @@ export default function Header({ onSearchFocus, activeView, setActiveView, searc
               About
             </button>
 
-            {/* 5. Contact */}
-            <button 
-              onClick={() => handleSelectView('contact')}
-              className={`text-sm font-semibold px-3 py-2 rounded-lg transition-colors cursor-pointer ${
-                activeView === 'contact' ? 'text-primary bg-primary/5 font-bold' : 'text-text-secondary hover:text-text-primary hover:bg-bg-custom'
-              }`}
-            >
-              Contact
-            </button>
           </nav>
         </div>
 
@@ -496,16 +486,6 @@ export default function Header({ onSearchFocus, activeView, setActiveView, searc
               }`}
             >
               <span>About Sequenxe</span>
-            </button>
-
-            {/* Contact Link */}
-            <button
-              onClick={() => handleSelectView('contact')}
-              className={`w-full text-left px-3 py-2 rounded-xl font-bold text-sm transition-colors cursor-pointer flex items-center justify-between ${
-                activeView === 'contact' ? 'bg-primary text-white' : 'text-text-primary hover:bg-bg-custom'
-              }`}
-            >
-              <span>Contact Us</span>
             </button>
           </div>
 

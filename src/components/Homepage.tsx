@@ -52,15 +52,15 @@ export default function Homepage({ setActiveView, searchQuery, setSearchQuery }:
       <section className="text-center py-12 px-4 sm:px-6 max-w-4xl mx-auto space-y-6" id="hero-search-section">
         <div className="inline-flex items-center gap-2 bg-primary/5 text-primary px-3 py-1.5 rounded-full text-xs font-semibold border border-primary/15 animate-pulse">
           <Sparkles className="h-3.5 w-3.5" />
-          <span>LHDN 2026 Ready & Automated</span>
+          <span>Updated for Malaysia • LHDN 2026</span>
         </div>
         
         <h1 className="font-display text-4xl sm:text-5xl font-extrabold tracking-tight text-text-primary leading-tight">
-          What would you like to <span className="text-primary underline decoration-primary-light decoration-4 underline-offset-6">calculate</span> today?
+        Malaysia's Free <span className="text-primary underline decoration-primary-light decoration-4 underline-offset-6">Salary, EPF & Tax</span> Calculators
         </h1>
         
         <p className="text-sm sm:text-base text-text-secondary max-w-xl mx-auto leading-relaxed">
-          Navigate Malaysian income tax, mortgages, KWSP retirement allocations, and personal debts with zero jargon and full clarity.
+        Calculate your salary, PCB, EPF, income tax, SOCSO, EIS, home loan and more using free calculators built for Malaysia.
         </p>
 
         {/* Large Premium Search Bar */}
@@ -104,7 +104,7 @@ export default function Homepage({ setActiveView, searchQuery, setSearchQuery }:
         <section className="space-y-6">
           <div className="border-b border-border-custom pb-3 flex items-center justify-between">
             <h2 className="font-display font-extrabold text-lg text-text-primary">
-              Matched Calculators ({filteredCalculators.length})
+            Search Results ({filteredCalculators.length})
             </h2>
             <button 
               onClick={() => setSearchQuery('')}
@@ -146,7 +146,7 @@ export default function Homepage({ setActiveView, searchQuery, setSearchQuery }:
             </div>
           ) : (
             <div className="text-center py-12 bg-white rounded-2xl border border-border-custom">
-              <p className="text-sm text-text-secondary">No calculators matched your search. Try searching "tax", "loan", or "EPF".</p>
+              <p className="text-sm text-text-secondary">No matching calculators found. Try searching for "salary", "PCB", "EPF" or "home loan".</p>
             </div>
           )}
         </section>
@@ -160,7 +160,7 @@ export default function Homepage({ setActiveView, searchQuery, setSearchQuery }:
               Popular Financial Tools
             </h2>
             <p className="text-xs text-text-secondary mt-0.5">
-              The most frequently used financial calculators by Malaysian households today.
+            Our most popular calculators for salary, tax, EPF and home financing.
             </p>
           </div>
 
@@ -189,7 +189,7 @@ export default function Homepage({ setActiveView, searchQuery, setSearchQuery }:
                   onClick={() => navigate(`/${calc.id}`)}
                   className="mt-5 flex items-center justify-center gap-1 bg-primary hover:bg-primary-hover text-white text-xs font-bold py-2.5 px-4 rounded-xl transition-all cursor-pointer shadow-sm"
                 >
-                  <span>Open Tool</span>
+                  <span>Use Calculator</span>
                   <ArrowRight className="h-3.5 w-3.5" />
                 </button>
               </div>
@@ -203,10 +203,10 @@ export default function Homepage({ setActiveView, searchQuery, setSearchQuery }:
         <section className="space-y-6">
           <div className="border-b border-border-custom pb-3">
             <h2 className="font-display font-extrabold text-xl sm:text-2xl text-text-primary tracking-tight">
-              Browse by User Goals
+              Browse Calculators
             </h2>
             <p className="text-xs text-text-secondary mt-0.5">
-              Organized by actual household objectives rather than complex technical financial jargon.
+            Find calculators by category, from salary and tax to home loans and retirement planning.
             </p>
           </div>
 
@@ -285,7 +285,7 @@ export default function Homepage({ setActiveView, searchQuery, setSearchQuery }:
               Featured Financial Guides
             </h2>
             <p className="text-xs text-text-secondary mt-0.5">
-              Practical explanations written by tax and real estate experts to empower your financial decisions.
+            Simple guides to help you understand Malaysian taxes, EPF, home loans and personal finance.
             </p>
           </div>
 
@@ -312,7 +312,7 @@ export default function Homepage({ setActiveView, searchQuery, setSearchQuery }:
 
                 <div className="mt-5 pt-4 border-t border-bg-custom">
                   <button
-                    onClick={() => navigate(`/blog/${post.slug}`)}
+                    onClick={() => navigate(`/blog/${guide.slug}`)}
                     className="text-xs font-semibold text-primary hover:text-primary-hover flex items-center gap-1 cursor-pointer"
                     >
                     <span>Read complete guide</span>
@@ -330,10 +330,10 @@ export default function Homepage({ setActiveView, searchQuery, setSearchQuery }:
         <section className="space-y-6">
           <div className="border-b border-border-custom pb-3">
             <h2 className="font-display font-extrabold text-xl sm:text-2xl text-text-primary tracking-tight">
-              Frequently Asked Questions (FAQ)
+              Frequently Asked Questions
             </h2>
             <p className="text-xs text-text-secondary mt-0.5">
-              Clear answers to common questions about statutory contributions, mortgage duties, and personal finance rates in Malaysia.
+            Answers to common questions about Malaysian salary, taxes, EPF, home loans and statutory contributions.
             </p>
           </div>
 

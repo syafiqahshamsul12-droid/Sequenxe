@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, FileText, Lock, Eye, Cookie, Server, UserCheck, MessageSquare } from 'lucide-react';
+import { Shield, FileText, Lock, Eye, Cookie, Server, UserCheck, MessageSquare, Boxes, Baby, RefreshCw } from 'lucide-react';
 import SEOManager from './calculators/shared/SEOManager';
 
 export default function PrivacyPolicyPage() {
@@ -27,7 +27,7 @@ export default function PrivacyPolicyPage() {
           Privacy Policy
         </h1>
         <p className="text-xs sm:text-sm text-text-secondary">
-          Last Updated: January 2026 • Sequenxe Educational Platform
+          Last Updated: August 2026
         </p>
       </div>
 
@@ -37,7 +37,7 @@ export default function PrivacyPolicyPage() {
         <section className="space-y-3">
           <h2 className="text-lg font-bold text-text-primary font-display flex items-center gap-2">
             <FileText className="h-5 w-5 text-primary" />
-            <span>1. Overview & Commitment</span>
+            <span>1. Introduction</span>
           </h2>
           <p className="text-text-secondary leading-relaxed">
             Sequenxe ("we", "our", or "us") is dedicated to providing privacy-first financial educational tools and calculators. This Privacy Policy outlines the types of information collected when you access and use Sequenxe, how that information is processed, and the measures we take to protect your data.
@@ -47,21 +47,27 @@ export default function PrivacyPolicyPage() {
         {/* Section 2: Information Collected */}
         <section className="space-y-3 border-t border-border-custom/60 pt-6">
           <h2 className="text-lg font-bold text-text-primary font-display flex items-center gap-2">
-            <Lock className="h-5 w-5 text-primary" />
-            <span>2. Information We Collect</span>
+          <Lock className="h-5 w-5 text-primary" />
+        <span>2. Information We Collect</span>
           </h2>
-          <p className="text-text-secondary leading-relaxed">
-            We prioritize user privacy. The financial inputs you enter into our calculators (e.g. salary amounts, loan tenures, EPF balances) are calculated locally in your web browser. <strong>We do not collect, store, or transmit your sensitive personal financial numbers to any central server database.</strong>
-          </p>
-          <div className="bg-bg-custom/50 p-4 rounded-xl border border-border-custom/70 space-y-2 text-xs">
-            <p className="font-bold text-text-primary">Types of Non-Personal Data Processed:</p>
-            <ul className="list-disc list-inside space-y-1 text-text-secondary">
-              <li>Device & Browser Metadata (browser type, operating system, language)</li>
-              <li>Anonymized IP Address & General Geographic Location (Country level)</li>
-              <li>Page Interaction Metrics (pages visited, calculator usage frequency)</li>
-            </ul>
-          </div>
-        </section>
+
+        <p className="text-text-secondary leading-relaxed">
+          Most financial information entered into our calculators (such as salary, EPF balances, loan values, or tax figures) is processed locally within your web browser. Sequenxe does not store these calculator inputs on our servers.
+        </p>
+
+        <div className="bg-bg-custom/50 p-4 rounded-xl border border-border-custom/70 space-y-2 text-xs">
+        <p className="font-bold text-text-primary">
+        Information that may be collected:
+        </p>
+
+        <ul className="list-disc list-inside space-y-1 text-text-secondary">
+        <li>Browser and device information</li>
+        <li>Pages visited and website usage statistics</li>
+        <li>General location (country or region) provided by third-party analytics services</li>
+        <li>Messages voluntarily submitted through our Contact page</li>
+        </ul>
+      </div>
+      </section>
 
         {/* Section 3: Cookies & Tracking Technologies */}
         <section className="space-y-3 border-t border-border-custom/60 pt-6">
@@ -70,7 +76,7 @@ export default function PrivacyPolicyPage() {
             <span>3. Cookies & Local Storage</span>
           </h2>
           <p className="text-text-secondary leading-relaxed">
-            Sequenxe uses standard cookies and browser local storage to save your session preferences (such as custom tax relief inputs or active calculator settings) so you can resume your session seamlessly. You can manage or block cookies at any time via your web browser settings.
+            Sequenxe uses cookies and browser local storage to improve your experience. These technologies may remember preferences such as your selected theme, calculator settings, or other website preferences. You can disable cookies through your browser settings, although some features may not function as intended.
           </p>
         </section>
 
@@ -92,10 +98,10 @@ export default function PrivacyPolicyPage() {
             <span>5. Google AdSense & Third-Party Advertising</span>
           </h2>
           <p className="text-text-secondary leading-relaxed">
-            Sequenxe may display non-intrusive advertisements served by Google AdSense and third-party vendor networks to support our free educational platform. Third-party vendors, including Google, use cookies to serve ads based on prior visits to our website or other websites on the internet.
+            We may display advertisements provided by Google AdSense. Google and its advertising partners may use cookies to display ads based on your visits to this and other websites.
           </p>
           <p className="text-text-secondary leading-relaxed">
-            Users may opt out of personalized advertising by visiting Google Ad Settings or www.aboutads.info.
+            You can manage your advertising preferences through Google Ad Settings. For more information about how Google processes data, please refer to Google's Privacy Policy.
           </p>
         </section>
 
@@ -106,8 +112,8 @@ export default function PrivacyPolicyPage() {
             <span>6. Data Security & Retention</span>
           </h2>
           <p className="text-text-secondary leading-relaxed">
-            We implement industry-standard encryption (HTTPS/TLS) across all website connections. Because calculator inputs remain strictly local to your browser, no financial profile data is stored on remote servers.
-          </p>
+  Sequenxe is delivered over secure HTTPS connections where supported by our hosting provider. Since calculator data is processed locally within your browser, we do not maintain a database containing your financial calculator inputs.
+</p>
         </section>
 
         {/* Section 7: User Rights */}
@@ -130,6 +136,45 @@ export default function PrivacyPolicyPage() {
           <p className="text-text-secondary leading-relaxed">
             If you have questions regarding this Privacy Policy or data privacy practices on Sequenxe, please reach out to us using our online Contact Form.
           </p>
+        </section>
+
+        <section className="space-y-3 border-t border-border-custom/60 pt-6">
+        <h2 className="text-lg font-bold text-text-primary font-display flex items-center gap-2">
+        <Boxes className="h-5 w-5 text-primary" />
+        <span>9. Third-Party Services</span>
+        </h2>
+        <p className="text-text-secondary leading-relaxed">
+         To operate and improve Sequenxe, we may use trusted third-party services, including:
+        </p>
+
+  <ul className="list-disc list-inside space-y-2 text-text-secondary">
+    <li>Google Analytics</li>
+    <li>Google AdSense</li>
+    <li>Formspree (Contact Form)</li>
+    <li>Vercel (Website Hosting)</li>
+  </ul>
+         </section>
+
+        <section className="space-y-3 border-t border-border-custom/60 pt-6">
+         <h2 className="text-lg font-bold text-text-primary font-display flex items-center gap-2">
+           <Baby className="h-5 w-5 text-primary" />
+          <span>10. Children's Privacy</span>
+         </h2>
+
+         <p className="text-text-secondary leading-relaxed">
+          Sequenxe is not intended for children under the age of 13. We do not knowingly collect personal information from children.
+         </p>
+        </section>
+
+        <section className="space-y-3 border-t border-border-custom/60 pt-6">
+        <h2 className="text-lg font-bold text-text-primary font-display flex items-center gap-2">
+          <RefreshCw className="h-5 w-5 text-primary" />
+          <span>11. Changes to This Privacy Policy</span>
+        </h2>
+
+         <p className="text-text-secondary leading-relaxed">
+         We may update this Privacy Policy from time to time. Any changes will be published on this page together with the updated revision date.
+         </p>
         </section>
 
       </div>

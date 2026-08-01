@@ -4,20 +4,20 @@ export const CALCULATORS: CalculatorMetadata[] = [
   // 1. Salary & Tax
   {
     id: 'salary-calculator',
-    title: 'Salary Calculator Malaysia ⭐',
-    shortDescription: 'Estimate complete monthly take-home salary after EPF, SOCSO, EIS, and PCB (Monthly Tax Deduction).',
-    description: 'The flagship Malaysian payroll calculator. Computes gross monthly income, statutory EPF, SOCSO, EIS deductions, LHDN PCB tax withholding, annual tax payable, net take-home pay, and visualizes deductions with interactive pie charts and breakdown schedules.',
+    title: 'Salary Calculator Malaysia',
+    shortDescription: 'Estimate your monthly take-home salary after EPF, SOCSO, EIS, and PCB deductions.',
+    description: 'Calculate your monthly salary breakdown based on Malaysian payroll rules. See your gross salary, EPF, SOCSO, EIS, PCB deductions, annual income tax estimate, and net take-home pay in one place.',
     category: 'salary',
     estimatedTime: '2 mins',
     trending: true,
     popular: true,
     iconName: 'Percent'
-  },
+  },,
   {
     id: 'pcb-calculator',
     title: 'PCB Calculator Malaysia',
-    shortDescription: 'Calculate Potongan Cukai Berjadual (PCB) monthly tax deductions according to LHDN rules.',
-    description: 'A dedicated Monthly Tax Deduction (PCB) estimator for Malaysian taxpayers. Computes your precise monthly LHDN tax withholding based on marital status, number of children, EPF deductions, and declared tax reliefs.',
+    shortDescription: 'Estimate your monthly PCB (Potongan Cukai Berjadual) based on LHDN guidelines.',
+    description: 'Calculate your monthly PCB deduction using the latest LHDN guidelines. Include your salary, EPF contribution, tax reliefs, marital status, and number of children for a more accurate estimate.',
     category: 'salary',
     estimatedTime: '1 min',
     trending: true,
@@ -27,8 +27,8 @@ export const CALCULATORS: CalculatorMetadata[] = [
   {
     id: 'income-tax-calculator',
     title: 'Income Tax Calculator Malaysia',
-    shortDescription: 'Estimate annual income tax, chargeable income, and claimable tax reliefs for YA 2026.',
-    description: 'Calculate your annual Malaysian personal income tax payable. Inputs lifestyle, medical, parental, educational, and child tax reliefs to find your exact taxable bracket and net tax liability.',
+    shortDescription: 'Estimate your annual income tax based on chargeable income and tax reliefs.',
+    description: 'Estimate your annual Malaysian income tax by entering your employment income and eligible tax reliefs. The calculator helps you understand your chargeable income and expected tax payable.',
     category: 'salary',
     estimatedTime: '2 mins',
     trending: true,
@@ -38,8 +38,8 @@ export const CALCULATORS: CalculatorMetadata[] = [
   {
     id: 'epf-calculator',
     title: 'EPF Calculator Malaysia',
-    shortDescription: 'Calculate monthly KWSP employee (11%/9%) and employer (13%/12%) statutory contributions.',
-    description: 'Determine exact monthly employee and employer EPF (KWSP) statutory contributions according to Malaysian labor law salary tiers and contribution rate settings.',
+    shortDescription: 'Calculate monthly employee and employer EPF (KWSP) contributions.',
+    description: 'Calculate monthly EPF (KWSP) contributions for both employees and employers based on current contribution rates in Malaysia.',
     category: 'salary',
     estimatedTime: '1 min',
     trending: false,
@@ -49,8 +49,8 @@ export const CALCULATORS: CalculatorMetadata[] = [
   {
     id: 'socso-calculator',
     title: 'SOCSO Calculator',
-    shortDescription: 'Lookup employee (~0.5%) and employer (~1.75%) PERKESO contributions up to RM6,000 ceiling.',
-    description: 'Check official statutory SOCSO (PERKESO) contribution rates for Employment Injury and Invalidity schemes based on the RM6,000 monthly salary cap.',
+    shortDescription: 'Calculate SOCSO (PERKESO) contributions based on your monthly salary.',
+    description: 'Estimate employee and employer SOCSO contributions using the latest PERKESO contribution table.',
     category: 'salary',
     estimatedTime: '1 min',
     trending: false,
@@ -60,8 +60,8 @@ export const CALCULATORS: CalculatorMetadata[] = [
   {
     id: 'eis-calculator',
     title: 'EIS Calculator',
-    shortDescription: 'Calculate Employment Insurance System 0.2% employee and employer contributions.',
-    description: 'Compute statutory Employment Insurance System (Sistem Insurans Pekerjaan - SIP) contributions capped at RM11.90/month for both employee and employer.',
+    shortDescription: 'Calculate Employment Insurance System (EIS) contributions.',
+    description: 'Estimate monthly Employment Insurance System (EIS) contributions for employees and employers according to Malaysia contribution schedule.',
     category: 'salary',
     estimatedTime: '1 min',
     trending: false,
@@ -73,8 +73,8 @@ export const CALCULATORS: CalculatorMetadata[] = [
   {
     id: 'home-loan-calculator',
     title: 'Home Loan Calculator Malaysia',
-    shortDescription: 'Calculate monthly mortgage payments, interest rates, tenure, and full amortization schedules.',
-    description: 'Estimate your monthly home loan installments, total interest charges, and total repayment cost in Malaysia. Features full yearly amortization tables and customizable interest rates.',
+    shortDescription: 'Estimate monthly home loan repayments and total borrowing costs.',
+    description: 'Calculate your monthly home loan instalment, total interest paid, and repayment schedule based on the loan amount, interest rate, and repayment period.',
     category: 'property',
     estimatedTime: '2 mins',
     trending: true,
@@ -86,8 +86,8 @@ export const CALCULATORS: CalculatorMetadata[] = [
   {
     id: 'epf-retirement-calculator',
     title: 'EPF Retirement Calculator',
-    shortDescription: 'Project future KWSP balance at age 55/60 and visualize Akaun 1, 2, and 3 splits.',
-    description: 'Project your future EPF (KWSP) savings balance based on salary growth, dividend compounding, and annual contributions. Divides retirement balance into Akaun Persaraan (75%), Akaun Sejahtera (15%), and Akaun Fleksibel (10%).',
+    shortDescription: 'Estimate how much your EPF savings could grow by retirement.',
+    description: 'Project your future EPF savings using your salary, contribution rate, annual salary growth, and expected dividend rate. View the estimated balance across EPF Account 1, Account 2, and Account 3.',
     category: 'retirement',
     estimatedTime: '3 mins',
     trending: true,
@@ -109,19 +109,19 @@ export const CATEGORIES = [
   {
     id: 'salary',
     title: '💼 Salary & Tax',
-    description: 'Calculate net income, PCB, income tax, EPF, SOCSO, and EIS.',
+    description: 'Salary, income tax, EPF, SOCSO, EIS, and PCB calculators.',
     count: 6
   },
   {
     id: 'property',
     title: '🏠 Home & Property',
-    description: 'Calculate monthly home loan installments, interest, and amortization.',
+    description: 'Home loan and property-related calculators.',
     count: 1
   },
   {
     id: 'retirement',
     title: '💰 Savings & Retirement',
-    description: 'Plan your retirement with KWSP projections and Akaun 1, 2, 3 splits.',
+    description: 'Plan your retirement with EPF savings projections.',
     count: 1
   }
 ];
@@ -133,24 +133,21 @@ export const FEATURED_GUIDES = [
     id: 'pcb-guide',
     slug: 'understanding-pcb-malaysia-guide',
     title: 'Understanding PCB (Monthly Tax Deduction) & How to Lower It Legally',
-    excerpt: 'How LHDN calculates your monthly tax withholding, why it fluctuates, and how Borang TP1 helps you keep more cash in your pocket every month.',
-    category: 'Salary & Tax',
+    excerpt: 'Learn how PCB is calculated, why the amount changes from month to month, and how tax reliefs can reduce your monthly deduction.',    category: 'Salary & Tax',
     readTime: '6 mins'
   },
   {
     id: 'epf-3-account-guide',
     slug: 'epf-kwsp-account-system-dividends-guide',
     title: 'How EPF (KWSP) Works: 3-Account System, Dividend Compounding & Voluntary Savings',
-    excerpt: 'Complete breakdown of KWSP: How the 3-Account structure works, how compound dividends grow your money, and voluntary self-contributions.',
-    category: 'Savings & Retirement',
+    excerpt: 'Understand how the EPF 3-account system works, how dividends are calculated, and when voluntary contributions may be useful.',    category: 'Savings & Retirement',
     readTime: '7 mins'
   },
   {
     id: 'home-loan-stamp-duty-guide',
     slug: 'first-time-homebuyer-malaysia-guide',
     title: 'First-Time Homebuyer Guide in Malaysia: Downpayment, Loan Approval & Hidden Costs',
-    excerpt: 'Navigating mortgages in Malaysia: Loan-to-value limits, legal fees, valuation costs, stamp duty exemptions, and EPF Account 2 withdrawals.',
-    category: 'Home & Property',
+    excerpt: 'Everything first-time homebuyers should know, including down payments, loan approval, legal fees, stamp duty, and other buying costs.',    category: 'Home & Property',
     readTime: '8 mins'
   }
 ];

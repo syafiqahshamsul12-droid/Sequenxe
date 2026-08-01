@@ -201,7 +201,7 @@ export default function App() {
       </main>
 
       {/* 3. Footer */}
-      <Footer setActiveView={setActiveView} />
+      <Footer />
       
     </div>
   );
